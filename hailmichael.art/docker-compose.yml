@@ -1,0 +1,20 @@
+services:
+  descent: 
+    image: frenchfry06/descent
+    container_name: descent
+    environment:
+      PORT: 3000
+      
+      VIRTUAL_HOST: hailmichael.art 
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: hailmichael.art
+      LETSENCRYPT_EMAIL: guillaume.roussin44@gmail.com
+    expose:
+      - 3000
+    volumes:
+      - /srv/www/hailmichael.art/img:/app/static/img
+
+networks:
+  default:
+      name: nginx-proxy
+      external: true

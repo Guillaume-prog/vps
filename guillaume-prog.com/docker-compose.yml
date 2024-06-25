@@ -1,0 +1,16 @@
+services:
+  portfolio: 
+    image: frenchfry06/guillaume-prog
+    container_name: portfolio
+    environment:
+      VIRTUAL_HOST: guillaume-prog.com 
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: guillaume-prog.com
+      LETSENCRYPT_EMAIL: guillaume.roussin44@gmail.com
+    expose:
+      - 3000
+
+networks:
+  default:
+    name: nginx-proxy
+    external: true

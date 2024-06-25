@@ -1,0 +1,19 @@
+services:
+  my_actual_budget : 
+    image: actualbudget/actual-server:latest
+    container_name: actual-server 
+    environment:
+      VIRTUAL_HOST: actual.guillaume-prog.com 
+      VIRTUAL_PORT: 5006
+      LETSENCRYPT_HOST: actual.guillaume-prog.com
+      LETSENCRYPT_EMAIL: guillaume.roussin44@gmail.com
+    expose:
+      - 5006
+    volumes:
+      - ./actual-data:/data
+    restart: unless-stopped
+
+networks:
+  default:
+    name: nginx-proxy
+    external: true
